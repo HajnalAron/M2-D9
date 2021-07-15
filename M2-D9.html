@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--
+ASSIGNMENT TOPIC
+You are creating a website to showcase your favourite music albums.
+In this page you will have a short biography section of yourself, and the top albums of your life, 
+the worst album you ever listened to and everything related to the music you love.
+
+ASSIGNMENT RULES
+- The project must be pushed to a new repository and linked in EduFlow by the end of the day.
+- You can google / use StackOverflow BUT we suggest you to use just the material provided and documentation.
+- To test the page, open it with your browser and inspect it with developer tools / device emulator.
+- Use Bootstrap4.6 classes to create the page.
+- Use containers, rows and cols in order to achieve a great responsive layout.
+
+NOTE:
+Even the most experienced designers need inspiration.
+Spend some time surfing the web researching the best way of representing the albums you love.
+Could be the Amazon way, the Spotify or Apple music way or any other music collection out there.
+
+HINT: Manage your time in order to finish the structure and responsiveness before focusing on details.
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- IMPORT ALL THE BOOTSTRAP RELATED CSS & SCRIPTS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="M2-D9.css">
+  </head>
+  <body id="home">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container" id=>
+                <a class="navbar-brand" href="#">My Music</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                    <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#albums">Albums</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#mosaic">Mosaic</a>
+                    </li>
+                </ul>                
+                </div>
+            </div>
+        </nav>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Fluid jumbotron</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+         </div>
+    </div>
+    <div class="container">
+        <h1 class="text-center">My favourite Albums</h1>
+        <div class="row">
+            <div class="card col-12 col-sm-6 col-md-4 col-l-3 text-center px-0">
+                <div class="badge">Hip-hop<br>Rap</div>
+                <img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Anthrazit RR</h5>
+                </div>
+                <ul class="list-group list-group-flush text-center">
+                  <li class="list-group-item">Raf Camora</li>
+                  <li class="list-group-item">0:59:34</li>
+                  <li class="list-group-item tracklist-listitem">Tracklist</li>
+                  <li class="list-group-item"><table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Track Number</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Featuring</th>
+                        <th scope="col">Live Track</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>1</th>
+                        <td>Anthrazit</td>
+                        <td>2:12</td>
+                        <td></td>
+                        <td><div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">
+                                <input type="checkbox" aria-label="Checkbox for following text input">
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td><button type="button" onclick="deleteTrack(event)" class="btn btn-danger">Delete</button></td>
+                      </tr>
+                    <div id="modal">
+                      <div class="modal fade" id="addTrackModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">New Track</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                      <label for="addTrackInput">Track Number</label>
+                                      <input type="text" class="form-control" id="addTrackInput" placeholder="Example input placeholder">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="addTrackInput1">Title</label>
+                                      <input type="text" class="form-control" id="addTrackInput1" placeholder="Example input placeholder">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="addTrackInput2">Duration</label>
+                                      <input type="text" class="form-control" id="addTrackInput2" placeholder="Another input placeholder">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="addTrackInput3">Featuring</label>
+                                      <input type="text" class="form-control" id="addTrackInput3" placeholder="Another input placeholder">
+                                    </div>
+                                  </form>
+                                  <label>Live Track</label>
+                                  <input type="checkbox" aria-label="Checkbox for following text input">
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                              <button type="button" class="btn btn-primary">Add Track</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </tbody>
+                  </table>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTrackModal">Add New Track</button>
+                </li>                  
+                </ul>
+                <div class="card-body">
+                    <div class="btn-group container-fluid p-3">
+                        <button type="button" class="btn btn-secondary"><a href="https://music.apple.com/de/album/anthrazit-rr/1323996480?l=en"><img src="https://img.icons8.com/ios-glyphs/50/000000/itunes.png" width="100%"/></a></button>
+                        <button type="button" onclick="location.href='https://en.wikipedia.org/wiki/Anthrazit_(album)'" class="btn btn-secondary">More Info</button>
+                        <button type="button" class="btn btn-secondary"><a href="https://open.spotify.com/album/0ztPSV8oysTBLHSOtHkItM"><img src="https://img.icons8.com/material-rounded/50/000000/spotify.png" width="100%"/></a></button>
+                    </div>
+                </div>
+            </div>
+    <div id="mosaic" class="container-fluid pt-5">
+        <div class="row no-gutters">
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images-na.ssl-images-amazon.com/images/I/61bEYjtgT9L.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://hiphopnewshun.files.wordpress.com/2013/10/bs8o_pdcqaa37e6.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+            <div class="col-6 col-md-4"><img src="https://images.genius.com/b152f99ec0c167cba06d7691b153e1d4.960x960x1.jpg" width="100%" height="100%" ></div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+
+    <footer class="page-footer bg-dark">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 col-sm-6 col-md-4 col-l-3 text-center"><p>This is the footer</p></div>
+            </div>
+</div>
+    </footer>
+    <!-- EXERCISE 2 
+        Implement a navigation bar using the bootstrap component
+        This navigation bar must link every section in your page
+        -->
+
+    <!-- EXERCISE 3
+            Create a responsive section for your favourite albums.
+            In this section you should have:
+            - 4 albums per row when the screen is very large
+            - 3 albums per row when you are on a tablet (or a smaller viewport)
+            - 2 albums per row when you are on a small screen
+        -->
+
+    <!-- EXERCISE 4
+            Create a section for the album reviews.
+            Pick one of your fav albums, and create a section with:
+            - Cover
+            - Title
+            - Band
+            - Duration
+            - Genre
+            - Tracklist
+            - ... And whatever you think it's interesting about it!
+        -->
+
+    <!-- EXERCISE 5
+            Worst album list! Find out the music you don't really like or you find overrated and list it
+            in this "hall of shame" chart!
+        -->
+
+    <!-- EXERCISE 6
+            Do you have any musician / band you admire or you are a fan of?
+            This section is dedicated to him / her / them!
+            Feel free to experiment in this part of the page.
+        -->
+
+    <!-- EXERCISE 7
+            Just covers!
+            Create a tapestry of album pictures. Every album picture must be "square" (use CSS to do that).
+            Put at least 20 covers (also repeated) to have a nice effect and see how Bootstrap handles it.
+        -->
+
+    <!-- EXERCISE 8
+            Implement a footer with some information / social links
+        -->
+
+    <!-- ############ EXTRA:
+        EXERCISE 9
+            Create an album details area that is going to be toggled on and off by clicking on the album image
+        -->
+
+    <!-- EXERCISE 10
+            Add a button to each section. By clicking on it the section body appears (if hidden) or disappears (if visible) 
+            (hint: look for a boostrap component that can handle the job for you. You can always rely on DOM manipulation if you can't find it)
+        -->
+
+    <!--
+         EXERCISE 11
+            Add in the footer a field that counts, on page load, how many ALBUMS there are on the page 
+        -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <script src="M2-D9.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+.navbar {
+    position: sticky;     
+}
+.badge {
+    position: absolute;
+    border: solid 1px greenyellow;
+    color: greenyellow;
+    border-bottom-right-radius: 20%;
+    height: fit-content;
+    width: fit-content;
+    background: #8080804a;
+}
+h5 {
+    margin: auto;
+}
